@@ -1,0 +1,32 @@
+appId: com.fastlat.app
+productName: FastLAT
+directories:
+  output: dist
+  buildResources: resources
+files:
+  - "out/**/*"
+  - "data/**/*"
+  - "resources/**/*"
+asarUnpack:
+  - "data/**/*"
+  - "resources/**/*"
+mac:
+  artifactName: ${name}-${version}-mac.${ext}
+  category: public.app-category.developer-tools
+win:
+  artifactName: ${name}-${version}-win.${ext}
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+linux:
+  artifactName: ${name}-${version}-linux.${ext}
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
